@@ -1,0 +1,22 @@
+dependencies:
+  #- <organization/repo>@<version> #serve per fare l'import dei progetti
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1' # gli dice che quando vede @chainlink lo deve sostituire con smartcontractkit/chainlink-brownie-contracts@1.1.1
+detenv: .env
+networks:
+#  default: 'development'
+  kovan:
+    # ricorda che questo indirizzo lo si prende da https://docs.chain.link/docs/ethereum-addresses/
+    eth_usd_price_feed: '0x9326BFA02ADD2366b30bacB125260Af641031331'
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+wallets:
+  from_key: ${PRIVATE_KEY}
